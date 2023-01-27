@@ -38,7 +38,14 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+Thanks to fellow students in this bootcamp adventure:
+
+- Rebecca Girndt https://github.com/re-gi
+- Myeonghun Jeong "MJ" https://github.com/mjtic
+- Karen Peazzoni https://github.com/kpeazzoni
+- Chris Zavala https://github.com/chrisZavala
+
+ 
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
