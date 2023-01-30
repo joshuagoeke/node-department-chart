@@ -1,47 +1,56 @@
+const { Employee } = require("../lib");
+const { Manager } = require("../lib");
+const { Engineer } = require("../lib");
+const { Intern } = require("../lib");
+
+
 function renderEmployee(employee){
     switch(employee.getRole()){
 
         case 'Manager':
-
+            let manager = new Manager;
+            manager = employee;
             return `
             <div class="card" style="width: 18rem;">
             <div class="card-header">
-              <h2>${Manager.getName()}</br>&#x2615 Manager</h2>
+              <h2>${manager.getName()}</br>&#x2615 Manager</h2>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Employee ID: ${Manager.getId()}</li>
-              <li class="list-group-item">E-mail: <a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></li>
-              <li class="list-group-item">Office Number: ${Manager.getOfficeNumber()}</li>
+              <li class="list-group-item">Employee ID: ${manager.getId()}</li>
+              <li class="list-group-item">E-mail: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+              <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
             </div>`
             break;
 
         case 'Engineer':
-
+            let engineer = new Engineer;
+            engineer = employee;
             return `
             <div class="card" style="width: 18rem;">
             <div class="card-header">
-              <h2>${Engineer.getName()}</br>&#x1f453 Engineer</h2>
+              <h2>${engineer.getName()}</br>&#x1f453 Engineer</h2>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Employee ID: ${Engineer.getId()}</li>
-              <li class="list-group-item">E-mail: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
-              <li class="list-group-item">GitHub: <a href="https://www.github.com/${Engineer.getGitHub()}">github.com/${Engineer.getGitHub()}</a></li>
+              <li class="list-group-item">Employee ID: ${engineer.getId()}</li>
+              <li class="list-group-item">E-mail: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+              <li class="list-group-item">GitHub: <a href="https://www.github.com/${engineer.getGitHub()}">github.com/${engineer.getGitHub()}</a></li>
             </ul>
             </div>`
             break;
 
         case 'Intern':
-
+          let intern = new Engineer;
+          intern = employee;
             return `
             <div class="card" style="width: 18rem;">
             <div class="card-header">
-              <h2>${Intern.getName()}</br>&#x1F393 Intern</h2>
+              <h2>${intern.getName()}</br>&#x1F393 Intern</h2>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Employee ID: ${Intern.getId()}</li>
-              <li class="list-group-item">E-mail: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></li>
-              <li class="list-group-item">School: ${Intern.getSchool()}</li>
+              <li class="list-group-item">Employee ID: ${intern.getId()}</li>
+              <li class="list-group-item">E-mail: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+              <li class="list-group-item">School: ${intern.getSchool()}</li>
             </ul>
             </div>`
             break;
@@ -50,8 +59,12 @@ function renderEmployee(employee){
     }
 }
 
-const employeeCards = (array) => {array.forEach(element => {renderEmployee(element)}).join('');
-}
+const employeeCards = (array) => {
+  var newArray =[];
+  array.forEach((element) => newArray.push(renderEmployee(element)));
+  newstring = newArray.join('');
+  return newstring;
+};
 
 function generateHTML(array) {
     return `<!doctype html>

@@ -138,7 +138,7 @@ const addMoreEmployeez = () =>{
         }else{
             console.log("Pretty bangin' team ya got there!");
             console.log(wholeTeam);
-            return wholeTeam;
+            writeToFile('./dist/index.html', generateHTML(wholeTeam));
         }
     });
 };
