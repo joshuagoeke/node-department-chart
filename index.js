@@ -28,7 +28,16 @@ const standardQs =[
 ]
 
 //Figure out which role the employee will have
-const newEmployee = () => {inquirer.prompt([
+const newEmployee = () => {
+    console.log(`
+___________________________________________________________________
+
+Welcome to DEPARTMENT-CHART-MAKER. You answer some questions, and
+we'll make HTML out of your answers.
+___________________________________________________________________
+    `);
+    
+    inquirer.prompt([
     {
         type: 'list',
         name: 'role',
@@ -138,7 +147,7 @@ function writeToFile(fileName, data) {
   };
 
 init = () => {const answers = newEmployee()
-    .then((answers) => writeToFile('./dist/index.html', generateHTML(answers)))
+    .then(() => writeToFile('./dist/index.html', generateHTML()))
     .then(() => console.log(answers))
     .catch((err) => console.log(err));
 };
