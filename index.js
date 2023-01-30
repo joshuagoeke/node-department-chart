@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 const { Employee } = require('./lib');
 const { Manager } = require('./lib');
@@ -146,10 +147,10 @@ function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
   };
 
-init = () => {const answers = newEmployee()
-    .then(() => writeToFile('./dist/index.html', generateHTML()))
-    .then(() => console.log(answers))
-    .catch((err) => console.log(err));
+init = () => {newEmployee()
+    // .then((answers) => writeToFile('./dist/index.html', generateHTML({...answers})))
+    // .then(() => console.log("dork"));
+    // .catch((err) => console.log(err));
 };
     init();
 

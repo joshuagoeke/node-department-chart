@@ -50,13 +50,10 @@ function renderEmployee(employee){
     }
 }
 
-const employeeCards = (array) => {
-    array.forEach(element => {
-        renderEmployee(element)
-    });
+const employeeCards = (array) => {array.forEach(element => {renderEmployee(element)}).join('');
 }
 
-function generateHTML() {
+function generateHTML(array) {
     return `<!doctype html>
     <html lang="en">
       <head>
@@ -75,7 +72,7 @@ function generateHTML() {
         </header>
         <div class = "card-deck" id="all-cards">
            
-          {employeeCards}
+          <p>${employeeCards(array)}</p>
       
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -84,5 +81,9 @@ function generateHTML() {
       </body>
     </html>`
 };
+
+
+
+
 
 module.exports = generateHTML;
