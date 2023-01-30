@@ -1,9 +1,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-// const { Employee } = require('./lib');
+const { Employee } = require('./lib');
 const { Manager } = require('./lib');
 const { Engineer } = require('./lib');
 const { Intern } = require('./lib');
+const generateHTML = require('./src/makeHTML')
 
 const wholeTeam = [];
 
@@ -127,9 +128,19 @@ const addMoreEmployeez = () =>{
         }else{
             console.log("Pretty bangin' team ya got there!");
             console.log(wholeTeam);
+            return wholeTeam;
         }
     });
 };
 
-init = () => newEmployee();
-init();
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+  };
+
+init = () => {const answers = newEmployee()
+    .then((answers) => writeToFile('./dist/index.html', generateHTML(answers)))
+    .then(() => console.log(answers))
+    .catch((err) => console.log(err));
+};
+    init();
+
